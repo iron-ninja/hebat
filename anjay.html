@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajak Balikan</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script>
+        // Inisialisasi EmailJS
+        (function(){
+            emailjs.init("aM51SatWCw4k6uf4o"); // Ganti dengan Public Key dari EmailJS
+        })();
+
+        // Fungsi Kirim Email
+        function sendEmail(response) {
+            const templateParams = {
+                user_response: response
+            };
+
+            emailjs.send("service_ccuun1s", "template_3d4a3ry", templateParams)
+                .then(function() {
+                    alert("Pesan telah dikirim! Terima kasih atas tanggapannya.");
+                }, function(error) {
+                    alert("Gagal mengirim pesan. Silakan coba lagi.");
+                });
+        }
+    </script>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1c1c1c;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            animation: fadeInUp 2s forwards;
+        }
+
+        header .tagline {
+            font-size: 1.2em;
+            color: #ff9900;
+            margin-bottom: 40px;
+            animation: fadeInUp 3s forwards;
+        }
+
+        section.content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .cta-box {
+            background: #333;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 10px;
+            width: 45%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-box h2 {
+            font-size: 1.8em;
+            color: #fff;
+        }
+
+        .cta-box p {
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        button {
+            background: #ff9900;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #ff6600;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            section.content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-box {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ajak Balikan</h1>
+            <p class="tagline">Kita bisa kembali bersama, apakah kamu mau?</p>
+        </header>
+        
+        <section class="content">
+            <div class="cta-box">
+                <h2>Mau balikan ga!</h2>
+                
+                <button onclick="sendEmail('Ya, Aku Mau Balikan')">Ya, Aku Mau Balikan</button>
+            </div>
+            <div class="cta-box">
+                <h2>Kalo ga pilih ini</h2>
+                
+                <button onclick="sendEmail('Ga Bisa Balikan')">Ga Bisa Balikan</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
