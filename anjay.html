@@ -4,27 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajak Balikan</title>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-    <script>
-        // Inisialisasi EmailJS
-        (function(){
-            emailjs.init("aM51SatWCw4k6uf4o"); // Ganti dengan Public Key dari EmailJS
-        })();
-
-        // Fungsi Kirim Email
-        function sendEmail(response) {
-            const templateParams = {
-                user_response: response
-            };
-
-            emailjs.send("service_ccuun1s", "template_3d4a3ry", templateParams)
-                .then(function() {
-                    alert("Pesan telah dikirim! Terima kasih atas tanggapannya.");
-                }, function(error) {
-                    alert("Gagal mengirim pesan. Silakan coba lagi.");
-                });
-        }
-    </script>
     <style>
         /* Global Styles */
         body {
@@ -142,20 +121,26 @@
 <body>
     <div class="container">
         <header>
-            <h1>Ajak Balikan</h1>
-            <p class="tagline">Kita bisa kembali bersama, apakah kamu mau?</p>
+            <h1>Balikan</h1>
+            <p class="tagline"></p>
         </header>
         
         <section class="content">
             <div class="cta-box">
-                <h2>Mau balikan ga!</h2>
-                
-                <button onclick="sendEmail('Ya, Aku Mau Balikan')">Ya, Aku Mau Balikan</button>
+                <h2>Mau Balikan?</h2>
+                <p></p>
+                <!-- Tombol WhatsApp untuk 1 -->
+                <a href="https://wa.me/6283169816824?text=1" target="_blank">
+                    <button>Iya mau</button>
+                </a>
             </div>
             <div class="cta-box">
-                <h2>Kalo ga pilih ini</h2>
-                
-                <button onclick="sendEmail('Ga Bisa Balikan')">Ga Bisa Balikan</button>
+                <h2>Ga!</h2>
+                <p></p>
+                <!-- Tombol WhatsApp untuk 2 -->
+                <a href="https://wa.me/6283169816824?text=2" target="_blank">
+                    <button>Ga!</button>
+                </a>
             </div>
         </section>
     </div>
